@@ -11,9 +11,14 @@ class App extends React.Component{
 constructor(props) {
   super(props);
   this.state = {
-    rotation: 150,
+    rotation: 60,
     stateSketch: sketch,
   };
+  this.rotationChange = this.rotationChange.bind(this)
+}
+
+rotationChange(e){
+  this.setState({rotation:e.target.value});
 }
 render() {
 
@@ -21,7 +26,7 @@ render() {
     <Router>
       <div>
       <div>Hello World</div>
-        <P5Wrapper sketch={this.state.stateSketch}/>
+        <P5Wrapper sketch={this.state.stateSketch} rotation={this.state.rotation}/>
         </div>
     </Router>
 
